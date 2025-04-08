@@ -11,9 +11,9 @@ int main() {
 	float areaKM;
 	float pib;
 	int NumPointTurism;
-
+    float MediaDensidade,MediaPIB;
 	//chamando cidade A01
-	printf("\n \n              Informe Primeira cidade! \n\n\n");
+	printf("\n               Informe Primeira cidade! \n\n");
 	printf("Informe o Estado: ");
 	scanf("%s", &Uf);
 	printf("Informe o Codigo da Carta: ");
@@ -40,7 +40,12 @@ int main() {
 	printf("Area: %.2f KM \n", areaKM);
 	printf("PIB: %.2f Bilhoes de reais\n", pib);
 	printf("Numero de Pontos Turisticos: %d \n", NumPointTurism);
-
+    
+	MediaDensidade = (float)(Populacao / areaKM);
+    MediaPIB = (float)(pib / Populacao);
+    
+    printf("Densidade Populacional: %.2f hab/km² \n",MediaDensidade);
+    printf("PIB per capita: %.2f reais\n",MediaPIB);
 
 	//chamando cidade A02
 	printf("\n\n\n\n\n              Informe Segunda cidade! \n\n\n");
@@ -70,6 +75,13 @@ int main() {
 	printf("Area: %.2f KM \n", areaKM);
 	printf("PIB: %.2f Bilhoes de reais\n", pib);
 	printf("Numero de Pontos Turisticos: %d \n", NumPointTurism);
+    
+	MediaDensidade = (float)(Populacao / areaKM);
+    MediaPIB = (float)(pib / Populacao);
+    
+    printf("Densidade Populacional: %.2f hab/km² \n",MediaDensidade);
+    printf("PIB per capita: %.2f reais\n",MediaPIB);
+
 
 	return 0;
 }
