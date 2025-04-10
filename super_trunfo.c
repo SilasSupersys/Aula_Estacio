@@ -6,15 +6,16 @@ int main() {
 		//variaveis da cidade 
 	char Uf1[2], Uf2[2];
 	int CodCarta1, CodCarta2;
-	char nomeCidade1[20] , nomeCidade2[20];
-	int Populacao1,Populacao2,opcao;
-	float areaKM1,areaKM2;
+	char nomeCidade1[20], nomeCidade2[20];
+	int Populacao1, Populacao2, opcao1,opcao2;
+	float areaKM1, areaKM2;
 	float pib1, pib2;
 	int NumPointTurism1, NumPointTurism2;
 	float MediaDensidade1, MediaPIB1;
 	float MediaDensidade2, MediaPIB2;
-	float PoderCidade1, PoderCidade2;
-    
+	float PoderCidade1, PoderCidade2,Resultado1,Resultado2;
+
+
 	//chamando cidade A01
 	printf("\n               Informe Primeira cidade! \n\n");
 	printf("Informe o Estado: ");
@@ -34,7 +35,7 @@ int main() {
 
 	//exibe primeiro cadastro
 	printf("\n \n              Cadastro da Primeira cidade realizado! \n\n\n");
-	
+
 	printf("Carta: %d \n", CodCarta1);
 	printf("Estado: %s \n", Uf1);
 	printf("Codigo: %s0%d \n", Uf1, CodCarta1);
@@ -97,139 +98,202 @@ int main() {
 
 	printf("\n\nComparacao de Cartas:\n");
 	printf("Populacao: ");
-	if (Populacao1 > Populacao2){
-	   printf("Cidade 1 venceu (%d)", (Populacao1 > Populacao2));}
-    else {
+	if (Populacao1 > Populacao2) {
+		printf("Cidade 1 venceu (%d)", (Populacao1 > Populacao2));
+	}
+	else {
 		printf("Cidade 2 venceu (%d)", (Populacao1 > Populacao2));
 	}
-    printf("\nArea: ");
-	if (areaKM1 > areaKM2){
-			printf("Cidade 1 venceu (%d)", (areaKM1 > areaKM2));}
-    else {
+	printf("\nArea: ");
+	if (areaKM1 > areaKM2) {
+		printf("Cidade 1 venceu (%d)", (areaKM1 > areaKM2));
+	}
+	else {
 		printf("Cidade 2 venceu (%d)", (areaKM1 > areaKM2));
 	}
-    printf("\nPIB: ");
-	if (pib1 > pib2){
-			printf("Cidade 1 venceu (%d)", (pib1 > pib2));}
-    else{	
+	printf("\nPIB: ");
+	if (pib1 > pib2) {
+		printf("Cidade 1 venceu (%d)", (pib1 > pib2));
+	}
+	else {
 		printf("Cidade 2 venceu (%d)", (pib1 > pib2));
 	}
-    printf("\nPontos Turísticos: ");
-	if (NumPointTurism1 > NumPointTurism2){
-			printf("Cidade 1 venceu (%d)", (NumPointTurism1 > NumPointTurism2));}
-    else{	
+	printf("\nPontos Turísticos: ");
+	if (NumPointTurism1 > NumPointTurism2) {
+		printf("Cidade 1 venceu (%d)", (NumPointTurism1 > NumPointTurism2));
+	}
+	else {
 		printf("Cidade 2 venceu (%d)", (NumPointTurism1 > NumPointTurism2));
 	}
-    printf("\nDensidade Populacional: ");
-	if (MediaDensidade1 < MediaDensidade2){
-			printf("Cidade 1 venceu (%d)", (MediaDensidade1 < MediaDensidade2));}
-    else{
-			printf("Cidade 2 venceu (%d)", (MediaDensidade1 < MediaDensidade2));
+	printf("\nDensidade Populacional: ");
+	if (MediaDensidade1 < MediaDensidade2) {
+		printf("Cidade 1 venceu (%d)", (MediaDensidade1 < MediaDensidade2));
 	}
-    printf("\nPIB per Capita: ");
-	if (MediaPIB1> MediaPIB2){	
-		printf("Cidade 1 venceu (%d)", (MediaPIB1 > MediaPIB2));}
-    else{	
+	else {
+		printf("Cidade 2 venceu (%d)", (MediaDensidade1 < MediaDensidade2));
+	}
+	printf("\nPIB per Capita: ");
+	if (MediaPIB1 > MediaPIB2) {
+		printf("Cidade 1 venceu (%d)", (MediaPIB1 > MediaPIB2));
+	}
+	else {
 		printf("Cidade 2 venceu (%d)", (MediaPIB1 > MediaPIB2));
 	}
 	printf("\nSuper Poder: ");
-	if (PoderCidade1> PoderCidade2){	
-		printf("Cidade 1 venceu (%d)", (PoderCidade1 > PoderCidade2));}
-    else{	
+	if (PoderCidade1 > PoderCidade2) {
+		printf("Cidade 1 venceu (%d)", (PoderCidade1 > PoderCidade2));
+	}
+	else {
 		printf("Cidade 2 venceu (%d)", (PoderCidade1 > PoderCidade2));
 	}
-    
-	printf("\n\n ====== MENU DE RESULTADO ======\n");
-	printf("0-[Populacao]           |  1-[Area KM]         |  2-[PIB]         |  3-[Pontos Turisticos] \n");
-	printf("4-[Dens. Populacional]  |  5-[PIB per capita]  |  6-[Poder]\n");
-	scanf("%d",&opcao);
-	
-	switch(opcao){
+redo:
+	Resultado1 = 0;
+	Resultado2 = 0;
+		printf("\n\n ====== MENU DE RESULTADO ======\n\n");
+		printf("[0] - [Populacao]\n");
+		printf("[1] - [Area KM]\n");
+		printf("[2] - [PIB]\n");
+		printf("[3] - [Pontos Turisticos] \n");
+		printf("[4] - [Dens. Populacional]\n");
+		printf("[5] - [PIB per capita]\n");
+		printf("[6] - [Poder]\n");
+		printf("[7] - [Sair]\n");
+
+		printf("Escolha o primeiro resultado para comparacao: \n");
+		scanf("%d", &opcao1);
+		
+		if (opcao1 == 7) {
+			goto fim; 
+		}
+		
+	reOpt:
+		printf("Escolha o segundo resultado para comparacao: \n");
+		scanf("%d", &opcao2);
+		if (opcao1 == opcao2) {
+			printf("Escolha um resultado diferente do primeiro!\n");
+			goto reOpt;
+		}
+
+    Opt2:
+	switch (opcao1) {
 	case 0:
-	    printf("\nPopulacao\n");
-		printf("Carta %d - %s (%s):%d \n",CodCarta1,nomeCidade1,Uf1,Populacao1);
-		printf("Carta %d - %s (%s):%d \n",CodCarta2,nomeCidade2,Uf2,Populacao2);
-		if(Populacao1 > Populacao2){
-            printf("Resultado: Carta %d (%s) venceu!\n",CodCarta1,nomeCidade1);
-		}else if(Populacao1 = Populacao2){
-			printf("Empate");
-		}else{
-            printf("Resultado: Carta %d (%s) venceu!\n",CodCarta2,nomeCidade2);   
-		}			
-	break;	
+		printf("\nPopulacao\n");
+		printf("Carta %d - %s (%s):%d \n", CodCarta1, nomeCidade1, Uf1, Populacao1);
+		printf("Carta %d - %s (%s):%d \n", CodCarta2, nomeCidade2, Uf2, Populacao2);
+		Populacao1 > Populacao2? 
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta1, nomeCidade1): 
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta2, nomeCidade2);
+		Populacao1 == Populacao2 ? printf("Empate"):"";		
+		Resultado1 = Resultado1 + Populacao1;
+		Resultado2 = Resultado2 + Populacao2;
+		if (opcao1 != opcao2) {
+			opcao1 = opcao2;
+			goto Opt2;
+		}
+		break;
 	case 1:
-	    printf("\nArea\n");
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta1,nomeCidade1,Uf1,areaKM1);
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta2,nomeCidade2,Uf2,areaKM2);
-		if(areaKM1 > areaKM2){
-            printf("Resultado: Carta %d (%s) venceu!\n",CodCarta1,nomeCidade1);
-		}else if(areaKM1 = areaKM2){
-			printf("Empate");
-		}else{
-			printf("Resultado: Carta %d (%s) venceu!\n",CodCarta2,nomeCidade2);
-		}	
-	break;	
+		printf("\nArea\n");
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta1, nomeCidade1, Uf1, areaKM1);
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta2, nomeCidade2, Uf2, areaKM2);
+		areaKM1 > areaKM2?
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta1, nomeCidade1):
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta2, nomeCidade2);		
+		areaKM1 == areaKM2?printf("Empate"):"";
+		Resultado1 = Resultado1 + areaKM1;
+		Resultado2 = Resultado2 + areaKM2;
+		if (opcao1 != opcao2) {
+			opcao1 = opcao2;
+			goto Opt2;
+		}
+		break;
 	case 2:
-	    printf("\nPIB\n");
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta1,nomeCidade1,Uf1,pib1);
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta2,nomeCidade2,Uf2,pib2);
-		if(pib1 > pib2){
-            printf("Resultado: Carta %d (%s) venceu!\n",CodCarta1,nomeCidade1);
-		}else if(pib1 = pib2){
-			printf("Empate");
-		}else{
-			printf("Resultado: Carta %d (%s) venceu!\n",CodCarta2,nomeCidade2);
+		printf("\nPIB\n");
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta1, nomeCidade1, Uf1, pib1);
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta2, nomeCidade2, Uf2, pib2);
+		pib1 > pib2?
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta1, nomeCidade1):
+		    printf("Resultado: Carta %d (%s) venceu!\n", CodCarta2, nomeCidade2);
+        pib1 == pib2?printf("Empate"):"";
+		Resultado1 = Resultado1 + pib1;
+		Resultado2 = Resultado2 + pib2;
+		if (opcao1 != opcao2) {
+			opcao1 = opcao2;
+			goto Opt2;
 		}
-	break;	
+		break;
 	case 3:
-	    rintf("\nPontos Turisticos\n");	
-		printf("Carta %d - %s (%s):%d \n",CodCarta1,nomeCidade1,Uf1,NumPointTurism1);
-		printf("Carta %d - %s (%s):%d \n",CodCarta2,nomeCidade2,Uf2,NumPointTurism2);
-		if(NumPointTurism1 > NumPointTurism2){
-            printf("Resultado: Carta %d (%s) venceu!\n",CodCarta1,nomeCidade1);
-		}else if(NumPointTurism1 = NumPointTurism2){
-			printf("Empate");
-		}else{
-			printf("Resultado: Carta %d (%s) venceu!\n",CodCarta2,nomeCidade2);
+		printf("\nPontos Turisticos\n");
+		printf("Carta %d - %s (%s):%d \n", CodCarta1, nomeCidade1, Uf1, NumPointTurism1);
+		printf("Carta %d - %s (%s):%d \n", CodCarta2, nomeCidade2, Uf2, NumPointTurism2);
+		NumPointTurism1 > NumPointTurism2?
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta1, nomeCidade1):
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta2, nomeCidade2);		
+		NumPointTurism1 == NumPointTurism2?printf("Empate"):"";
+		Resultado1 = Resultado1 + NumPointTurism1;
+		Resultado2 = Resultado2 + NumPointTurism2;
+		if (opcao1 != opcao2) {
+			opcao1 = opcao2;
+			goto Opt2;
 		}
-	break;	
+		break;
 	case 4:
-	    printf("Dens. Populacional\n");
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta1,nomeCidade1,Uf1,MediaDensidade1);
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta2,nomeCidade2,Uf2,MediaDensidade2);
-		if(MediaDensidade1 > MediaDensidade2){
-            printf("Resultado: Carta %d (%s) venceu!\n",CodCarta1,nomeCidade1);
-		}else if(MediaDensidade1 = MediaDensidade2){
-			printf("Empate");
-		}else{
-			printf("Resultado: Carta %d (%s) venceu!\n",CodCarta2,nomeCidade2);
+		printf("Dens. Populacional\n");
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta1, nomeCidade1, Uf1, MediaDensidade1);
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta2, nomeCidade2, Uf2, MediaDensidade2);
+		MediaDensidade1 < MediaDensidade2?
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta1, nomeCidade1):
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta2, nomeCidade2);
+		MediaDensidade1 == MediaDensidade2?	printf("Empate"):"";
+		Resultado1 = Resultado1 + MediaDensidade1;
+		Resultado2 = Resultado2 + MediaDensidade2;
+		if (opcao1 != opcao2) {
+			opcao1 = opcao2;
+			goto Opt2;
 		}
-	break;	
+		break;
 	case 5:
-	    printf("PIB per capita\n");
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta1,nomeCidade1,Uf1,MediaPIB1);
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta2,nomeCidade2,Uf2,MediaPIB2);
-		if(MediaPIB1 > MediaPIB2){
-            printf("Resultado: Carta %d (%s) venceu!\n",CodCarta1,nomeCidade1);
-		}else if(MediaPIB1 = MediaPIB2){
-			printf("Empate");
-		}else{
-			printf("Resultado: Carta %d (%s) venceu!\n",CodCarta2,nomeCidade2);
+		printf("PIB per capita\n");
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta1, nomeCidade1, Uf1, MediaPIB1);
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta2, nomeCidade2, Uf2, MediaPIB2);
+		MediaPIB1 > MediaPIB2?
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta1, nomeCidade1):
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta2, nomeCidade2);		
+		MediaPIB1 == MediaPIB2?	printf("Empate"):"";
+		Resultado1 = Resultado1 + MediaPIB1;
+		Resultado2 = Resultado2 + MediaPIB2;
+		if (opcao1 != opcao2) {
+			opcao1 = opcao2;
+			goto Opt2;
 		}
-	break;	
+		break;
 	case 6:
-	    printf("\nPoder\n");
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta1,nomeCidade1,Uf1,PoderCidade1);
-		printf("Carta %d - %s (%s):%.2f \n",CodCarta2,nomeCidade2,Uf2,PoderCidade2);
-		if(PoderCidade1 > PoderCidade2){
-            printf("Resultado: Carta %d (%s) venceu!\n",CodCarta1,nomeCidade1);
-		}else if(PoderCidade1 = PoderCidade2){
-			printf("Empate");
-		}else{
-			printf("Resultado: Carta %d (%s) venceu!\n",CodCarta2,nomeCidade2);
+		printf("\nPoder\n");
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta1, nomeCidade1, Uf1, PoderCidade1);
+		printf("Carta %d - %s (%s):%.2f \n", CodCarta2, nomeCidade2, Uf2, PoderCidade2);
+		PoderCidade1 > PoderCidade2?
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta1, nomeCidade1):
+			printf("Resultado: Carta %d (%s) venceu!\n", CodCarta2, nomeCidade2);
+		PoderCidade1 == PoderCidade2?printf("Empate"):"";
+		Resultado1 = Resultado1 + PoderCidade1;
+		Resultado2 = Resultado2 + PoderCidade2;
+		if (opcao1 != opcao2) {
+			opcao1 = opcao2;
+			goto Opt2;
 		}
-	break;	
-	}	
-	
+		break;
+	case 7:
+		break;
+	default:
+		printf("\n Menu invalido!");
+		goto redo;
+	}
+	printf("\n\n***** Resultado da Disputa *****\n");
+	printf("Soma total da cidade %s: %.2f\n",nomeCidade1, Resultado1);
+	printf("Soma total da cidade %s: %.2f\n\n",nomeCidade2, Resultado2);
+
+	Resultado1 > Resultado2 ? printf("Cidade %s venceu!",nomeCidade1) : printf("Cidade %s venceu!", nomeCidade2);
+	Resultado1 == Resultado2 ? printf("Empate!") : "";
+	if (opcao1 != 7) { goto redo; }
+	fim:
 	return 0;
 }

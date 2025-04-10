@@ -7,6 +7,14 @@ int main() {
 
     printf(" ***** PROGRAMA DE CALCULO DE MEDIA *****\n\n");
 
+
+    switch(opcao){
+        case 0:
+        break;
+        default;
+        printf("Menu invalido");
+    }
+    /*
     printf("DIGITE A SUA PRIMEIRA NOTA: \n");
     scanf("%f", &nota1);
 
@@ -19,6 +27,6 @@ int main() {
     media = (float)(nota1 + nota2+ nota3) /3;
 
     printf("A MEDIA E: %.2f", media);
-
+    */
     return 0;
 }
