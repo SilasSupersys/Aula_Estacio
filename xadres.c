@@ -63,5 +63,4 @@ int main() {
     }
    }*/
    moverCavalo(2);
-
 }
