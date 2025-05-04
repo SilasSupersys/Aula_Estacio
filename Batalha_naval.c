@@ -3,14 +3,39 @@
 #define LINHAS 10
 #define COLUNAS 10
 
+int validaPosicao(int tamanho,int lPosicao,int diagonal,int cPosicao)
+{
+    for (int i = 0; i < tamanho; i++) {
+        int l = lPosicao + i;
+        int c = (diagonal == 1) ? cPosicao + i : cPosicao - i;
+
+        if (l < 0 || l >= 10 || c < 0 || c >= 10) {
+            printf("Coordenada ou posicao invalida!\n");      
+            return 0;   
+        }else{
+            return 1;
+        }
+    } 
+    
+}
+
 int main() {
+    //matriz geral
     int matriz[LINHAS][COLUNAS];
+    
+    //matriz de habilidade
+    int cone[5][5];
+    int cruz[5][5];
+    int octaedro[5][5];
+
 
     //define variaveis de controle
     int linhaPosicao,colunaPosicao;
     int direcao;
     const int tamanhoBarco = 3;
     int QtdBarcos = 4;
+    //variaves para o ataque
+    int tipoAtaque,PosicaoAtaque;
     //inicia a matriz
     printf(">>> TABULEIRO BATALHA NAVAL <<<\n");
     for (int i = 0; i < 10; i++) {
@@ -35,21 +60,25 @@ int main() {
         scanf("%d", &colunaPosicao);
         
         //valida se e permitido o valor da linha ou coluna
+        if (valida(tamanhoBarco,linhaPosicao,direcao,colunaPosicao))
+        {
+            goto menu;
+        }
+        /*
         for (int i = 0; i < tamanhoBarco; i++) {
             int l = linhaPosicao + i;
             int c = (direcao == 1) ? colunaPosicao + i : colunaPosicao - i;
     
             if (l < 0 || l >= 10 || c < 0 || c >= 10) {
-                printf("Posicao da linha, coluna ou direcao invalida!\n");
-                goto menu;
+                printf("Coordenada ou posicao invalida!\n");                
             }
-        }        
+        }   */     
         if(m == 1){
             //adiciona o barco 1
             for (int i = 0; i < tamanhoBarco; i++) {
                 int l = linhaPosicao + i;
                 int c = (direcao == 1) ? colunaPosicao + i : colunaPosicao - i;                
-                matriz[l][c] = 3;
+                matriz[l][c] = 1;
             }            
         }
         if(m == 2){
@@ -67,7 +96,7 @@ int main() {
                         }                        
                     }
                 }
-                matriz[l][c] = 3;
+                matriz[l][c] = 2;
             }   
         }
         if(m == 3){
@@ -99,7 +128,7 @@ int main() {
                         }                        
                     }
                 }         
-                matriz[linhaPosicao +i][colunaPosicao ] = 3;
+                matriz[linhaPosicao +i][colunaPosicao ] = 4;
             }   
         }
     }
@@ -110,5 +139,19 @@ int main() {
         }
         printf("\n");
     }
+    
+    //chama menus de ataque
+    ataque:
+    printf(">>> ESCOLHA O TIPO DE ATAQUE E APOS ISSO A DIRECAO <<<\n\n");
+    printf("Escolha o tipo de ataque: [%d] (1 - Cone | 2 - Cruz | 3 - Octaedro | 0 - Cancelar): ",tipoAtaque);
+    scanf("%d", &tipoAtaque);
+    if(tipoAtaque != 1 || tipoAtaque != 2 || tipoAtaque != 3 || tipoAtaque != 0){
+        printf("Tipo de ataque invalido!");
+        goto ataque;
+    }
+
+    printf("Escolha a coordenada do ataque [%d] de (0 a 9): ",PosicaoAtaque);
+    scanf("%d", &PosicaoAtaque);
+
     return 0;
 }
